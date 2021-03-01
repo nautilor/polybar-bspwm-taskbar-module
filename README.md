@@ -31,4 +31,4 @@ exec = running_apps | xargs
 
 ## Demo Video
 
-![](demo/demo.mp4)
+![](demo/demo.gif)
