@@ -1,7 +1,7 @@
 # BSPWM Taskbar Module for Polybar
 
 [![Generic badge](https://img.shields.io/badge/BSPWM-red)](https://github.com/baskerville/bspwm)
-[![Generic badge](https://img.shields.io/badge/POLYBAR-green)](https://github.com/baskerville/bspwm)
+[![Generic badge](https://img.shields.io/badge/POLYBAR-green)](https://github.com/polybar/polybar)
 [![Generic badge](https://img.shields.io/badge/UNIXPORN%20TELEGRAM-blue)](https://t.me/r_unixporn_group)
 
 A simple taskbar for bspwm to add to your Polybar
