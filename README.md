@@ -26,7 +26,7 @@ format-prefix-foreground = #111111
 format-prefix-background = #0c9c84
 format-background = #111111
 format-foreground = #d0d060
-exec = taskbar | xargs
+exec = taskbar
 ```
 
 ## Demo Video
