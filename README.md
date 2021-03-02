@@ -19,7 +19,7 @@ Place the script in any of the `$PATH` for example
 [module/windows]
 type = custom/script
 interval = 0
-format = "<label> "
+format = "<label>"
 format-prefix = "  "
 format-prefix-foreground = #111111
 format-prefix-background = #0c9c84
