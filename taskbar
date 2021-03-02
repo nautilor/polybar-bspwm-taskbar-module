@@ -11,6 +11,6 @@ do
     TITLE=$(xtitle $WINDOW | sed 's/^.*-\s//g' | sed -E 's/(–.*$)?(\s?\(.*\))?//g')
     MAX_LENGTH=$(((${#TITLE}*5)/100))
     [ $MAX_LENGTH -gt 0 ] && TITLE=`echo $TITLE | sed -E "s/.{$MAX_LENGTH}$/.../"` || TITLE=$TITLE
-    echo "%{A1:bspc node -f $WINDOW:}%{B$COLOR}%{F#d0d0d0}  $TITLE%{A}%{u-}"
+    echo -e "%{A1:bspc node -f $WINDOW:}%{B$COLOR}%{F#d0d0d0}  $TITLE%{A}%{u-} \c"
 done
 
