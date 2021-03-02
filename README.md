@@ -20,7 +20,6 @@ Place the script in any of the `$PATH` for example
 type = custom/script
 interval = 0
 format = "<label> "
-format-padding = 0
 format-prefix = "  "
 format-prefix-foreground = #111111
 format-prefix-background = #0c9c84
