@@ -10,8 +10,8 @@ A simple taskbar for bspwm to add to your Polybar
 
 Place the script in any of the `$PATH` for example
 
-- /usr/bin/
-- $HOME/.local/bin
+- `/usr/bin/`
+- `$HOME/.local/bin/`
 
 ## Polybar configuration example
 
