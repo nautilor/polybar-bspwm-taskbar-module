@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 if [ -z "$(bspc query -N -n .window -d focused)" ]; then
     echo "%{B#323232}%{F#d0d0d0} --- %{u-}"
