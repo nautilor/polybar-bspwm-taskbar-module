@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 
-ACTIVE_COLOR="#222"
-INACTIVE_COLOR="#323232"
+ACTIVE_BG_COLOR="#222"
+INACTIVE_BG_COLOR="#323232"
+FG_COLOR="#d0d0d0"
 
 while read LINE; do
     mapfile -t WINDOW_LIST < <( bspc query -N -n .window -d focused )
     if [ ${#WINDOW_LIST[@]} -eq 0 ]; then
-        echo "%{B#323232}%{F#d0d0d0} --- %{u-}"
+        echo "%{B#$INACTIVE_BG_COLOR}%{F#$FG_COLOR} --- %{u-}"
     else
         MODULE_STR=""
         for WINDOW in "${WINDOW_LIST[@]}"; do
             FOCUS="$( bspc query -N -n )"
-            [[ "$FOCUS" == "$WINDOW" ]] && COLOR="$ACTIVE_COLOR" || COLOR="$INACTIVE_COLOR"
+            [[ "$FOCUS" == "$WINDOW" ]] && BG_COLOR="$ACTIVE_BG_COLOR" || BG_COLOR="$INACTIVE_BG_COLOR"
             TITLE="$(xdotool getwindowname $WINDOW | sed 's/^.*-\s//g' | sed -E 's/(–.*$)?(\s?\(.*\))?//g')"
             MAX_LENGTH=$(((${#TITLE}*5)/100))
             [ $MAX_LENGTH -gt 0 ] && TITLE="$( echo $TITLE | sed -E "s/.{$MAX_LENGTH}$/.../" )" || TITLE=$TITLE
-            MODULE_STR="${MODULE_STR}%{A1:bspc node -f $WINDOW:}%{B$COLOR}%{F#d0d0d0}  $TITLE%{A}%{u-} "
+            MODULE_STR="${MODULE_STR}%{A1:bspc node -f $WINDOW:}%{B$BG_COLOR}%{F#$FG_COLOR}  $TITLE%{A}%{u-} "
         done
         echo -e "$MODULE_STR\n\c"
     fi
