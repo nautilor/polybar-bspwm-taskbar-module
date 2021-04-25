@@ -28,9 +28,9 @@ format-foreground = #d0d060
 exec = taskbar
 ```
 
-The colors can also be customized from the exec option as given below:
+The colors and/or separator character can also be customized from the exec option as given below:
 ```shell
-exec = taskbar --activebg "#000" --inactivebg "#303030" --fg "#eaeaea"
+exec = taskbar --activebg "#000" --inactivebg "#303030" --fg "#eaeaea" --separator "·"
 ```
 
 ## Demo Video

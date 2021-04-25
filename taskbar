@@ -3,6 +3,7 @@
 ACTIVE_BG_COLOR="#222"
 INACTIVE_BG_COLOR="#323232"
 FG_COLOR="#d0d0d0"
+SEPARATOR=""
 
 while [[ $# -gt 0 ]]; do
     KEY="$1"
@@ -10,6 +11,7 @@ while [[ $# -gt 0 ]]; do
         --activebg) ACTIVE_BG_COLOR="$2";;
         --inactivebg) INACTIVE_BG_COLOR="$2";;
         --fg) FG_COLOR="$2";;
+        --separator) SEPARATOR="$2";;
         *) echo "Unknown option $KEY.";;
     esac
     shift
@@ -25,11 +27,11 @@ while read LINE; do
         for WINDOW in "${WINDOW_LIST[@]}"; do
             FOCUS="$( bspc query -N -n )"
             [[ "$FOCUS" == "$WINDOW" ]] && BG_COLOR="$ACTIVE_BG_COLOR" || BG_COLOR="$INACTIVE_BG_COLOR"
-            TITLE="$(xdotool getwindowname $WINDOW | sed 's/^.*-\s//g' | sed -E 's/(–.*$)?(\s?\(.*\))?//g')"
+            TITLE="$( xdotool getwindowname $WINDOW | sed 's/^.*-\s//g' | sed -E 's/(–.*$)?(\s?\(.*\))?//g' )"
             MAX_LENGTH=$(((${#TITLE}*5)/100))
             [ $MAX_LENGTH -gt 0 ] && TITLE="$( echo $TITLE | sed -E "s/.{$MAX_LENGTH}$/.../" )" || TITLE=$TITLE
-            MODULE_STR="${MODULE_STR}%{A1:bspc node -f $WINDOW:}%{B$BG_COLOR}%{F$FG_COLOR}  $TITLE%{A}%{u-} "
+            MODULE_STR="${MODULE_STR}%{A1:bspc node -f $WINDOW:}%{B$BG_COLOR}%{F$FG_COLOR} $SEPARATOR $TITLE%{A}%{u-} "
         done
         echo -e "$MODULE_STR\n\c"
     fi
-done < <( echo && bspc subscribe node_focus desktop_focus monitor_focus )
+done < <( echo && bspc subscribe node_focus node_add node_remove desktop_focus monitor_focus )
