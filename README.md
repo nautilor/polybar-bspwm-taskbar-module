@@ -18,7 +18,7 @@ Place the script in any of the `$PATH` for example
 ```conf
 [module/windows]
 type = custom/script
-interval = 0
+tail = true
 format = "<label>"
 format-prefix = "  "
 format-prefix-foreground = #111111
