@@ -18,7 +18,7 @@ Place the script in any of the `$PATH` for example
 ```conf
 [module/windows]
 type = custom/script
-interval = 0
+tail = true
 format = "<label>"
 format-prefix = "  "
 format-prefix-foreground = #111111
@@ -26,6 +26,11 @@ format-prefix-background = #0c9c84
 format-background = #111111
 format-foreground = #d0d060
 exec = taskbar
+```
+
+The colors and/or separator character can also be customized from the exec option as given below:
+```shell
+exec = taskbar --activebg "#000" --inactivebg "#303030" --fg "#eaeaea" --separator "·"
 ```
 
 ## Demo Video
